@@ -1,0 +1,19 @@
+.toggle-button {
+  all: unset;
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  outline: none;
+  border-radius: 6px;
+  background-color: var(--color-muted);
+  color: white;
+  line-height: 0;
+}
+.toggle-button[data-pressed] {
+  background-color: var(--color-muted);
+  outline: 1px solid var(--color-primary);
+  outline-offset: 2px;
+}

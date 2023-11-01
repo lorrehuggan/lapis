@@ -1,0 +1,80 @@
+.editor {
+  max-width: 732px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  & h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+    font-weight: 900;
+    color: var(--color-white);
+  }
+
+  & h1 {
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  & h2 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  & h3 {
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  & h4 {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  & h5 {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  & h6 {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  & p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  & blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    border-left: 0.5rem solid var(--color-white);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  & ul,
+    & ol {
+    padding: 0 1rem;
+    list-style: square;
+  }
+
+  & code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    padding: 1rem;
+    background-color: hsl(0, 0%, 15%);
+    color: hsl(0, 0%, 85%);
+    border-radius: 0.25rem;
+  }
+
+}
+
+.highlight {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    border-radius: 0.125rem;
+    padding: 0.125rem;
+}

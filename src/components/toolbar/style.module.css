@@ -1,0 +1,18 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  & p {
+    font-size: 0.875rem;
+  }
+  & .marks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: opacity 0.8s ease-in-out;
+  }
+}
