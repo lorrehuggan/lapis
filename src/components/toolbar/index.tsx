@@ -2,16 +2,34 @@ import { Editor } from "@tiptap/core"
 import Toggle from "../ui/toggle"
 import { cx } from "class-variance-authority";
 import style from "./style.module.css";
-import { Bold, Highlighter, Italic, Keyboard, Strikethrough } from "lucide-solid";
+import { Bold, Highlighter, Italic, Keyboard, Save, Strikethrough } from "lucide-solid";
 import { boldToggle, highlightToggle, italicToggle, strikeToggle } from "../../lib/marks";
-import { Accessor, Show } from "solid-js";
+import { Accessor, Show, createEffect, createMemo } from "solid-js";
 import { createEditorTransaction } from "solid-tiptap";
 import { isTyping } from "../editor";
+// import { invoke } from '@tauri-apps/api/tauri'
+import Button from "../ui/button";
+// import { toast } from 'solid-sonner'
+import { open } from '@tauri-apps/api/dialog'
+
+
+async function openFile() {
+  const result = await open({
+    multiple: false,
+    title: 'Open File',
+    defaultPath: '.',
+    filters: [
+      { name: 'Markdown', extensions: ['md'] },
+    ]
+  })
+  console.log(result)
+}
 
 
 type Props = {
   editor: Accessor<Editor>;
 }
+
 
 export default function Toolbar(props: Props) {
 
@@ -35,10 +53,54 @@ export default function Toolbar(props: Props) {
     (editor) => editor.isActive('strike'),
   );
 
+  const isHeading1 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 1 }),
+  );
+
+  const isHeading2 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 2 }),
+  );
+
+  const isHeading3 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 3 }),
+  );
+
+  const isHeading4 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 4 }),
+  );
+
+  const isHeading5 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 5 }),
+  );
+
+  const isHeading6 = createEditorTransaction(
+    () => props.editor(), // Editor instance from createTiptapEditor
+    (editor) => editor.isActive('heading', { level: 6 }),
+  );
+
+  const isHeading = createMemo(() => {
+    const headings = [
+      isHeading1(),
+      isHeading2(),
+      isHeading3(),
+      isHeading4(),
+      isHeading5(),
+      isHeading6(),
+    ]
+    return headings.some((heading) => heading === true)
+  })
+
   const wordCount = createEditorTransaction(
     () => props.editor(), // Editor instance from createTiptapEditor
     (editor) => editor.storage.characterCount.words(),
   );
+
+
 
   return (
     <div class={cx(style.toolbar, 'container')}>
@@ -46,7 +108,7 @@ export default function Toolbar(props: Props) {
       }>
         <Keyboard size={16} />
       </Show>
-      <div class={style.marks} style={{ opacity: isTyping() ? '0.2' : '1' }}>
+      <div class={style.marks}>
         <Toggle
           active={isBold()}
           label="bold"
@@ -63,14 +125,21 @@ export default function Toolbar(props: Props) {
           active={isStrike()}
           label="strike through"
           icon={<Strikethrough size={14} />}
-          fn={() => strikeToggle(props.editor())}
+          fn={() => strikeToggle(props.editor())
+          }
         />
         <Toggle
           active={isHighlighted()}
           label="italic"
           icon={<Highlighter size={14} />}
-          fn={() => highlightToggle(props.editor())}
+          fn={() => {
+            if (isHeading) {
+              return () => { }
+            }
+            return highlightToggle(props.editor())
+          }}
         />
+        <Button onClick={() => openFile()}><Save size={14} /></Button>
       </div>
     </div>
   )

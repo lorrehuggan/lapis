@@ -1,11 +1,12 @@
 .button {
   all: unset;
-  border-radius: 0.15rem;
-  transition: all 0.2s ease-in-out;
+  border-radius: var(--radius);
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  padding: 0.25rem 1rem;
   background-color: transparent;
+  padding: 0.5rem;
 }
+
 
 .border {
   border: 1px solid hsl(0, 0%, 20%);
@@ -15,12 +16,17 @@
   color: var(--color-white);
   &:hover {
     background-color: var(--color-muted);
-    color: var(--color-black);
   }
 }
 
 .primary {
   background-color: var(--color-primary);
   color: white;
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+  &:active {
+    background-color: var(--color-primary);
+  }
 }
 

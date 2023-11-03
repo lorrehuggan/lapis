@@ -41,6 +41,9 @@ dependencies:
   solid-js:
     specifier: ^1.7.8
     version: 1.8.5
+  solid-sonner:
+    specifier: ^0.2.0
+    version: 0.2.0(solid-js@1.8.5)
   solid-tiptap:
     specifier: ^0.6.0
     version: 0.6.0(@tiptap/core@2.1.12)(@tiptap/pm@2.1.12)(solid-js@1.8.5)
@@ -2999,6 +3002,14 @@ packages:
       '@babel/types': 7.23.0
       solid-js: 1.8.5
     dev: true
+
+  /solid-sonner@0.2.0(solid-js@1.8.5):
+    resolution: {integrity: sha512-R0A5TSWbPYp4pOj9RY4LXliTJv5RLlmZmKxuIUZA/80eYrk19l8OMlYf3PcOTdEfM7voG0jWeVWv1GT/EObJ2A==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      solid-js: 1.8.5
+    dev: false
 
   /solid-tiptap@0.6.0(@tiptap/core@2.1.12)(@tiptap/pm@2.1.12)(solid-js@1.8.5):
     resolution: {integrity: sha512-79soXY4lSGkCdlfKalawGyvPE0kOvrKd7w9Zy3o3MY4dppti5Yd2RUVqyNPtYPpvCyqaLg+kofq81RRGl/Ql4Q==}

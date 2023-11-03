@@ -1,0 +1,17 @@
+.navigation {
+  width: 4rem;
+  background-color: var(--color-muted);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+  & .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}

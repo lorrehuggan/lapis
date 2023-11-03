@@ -36,6 +36,8 @@
   --color-secondary: hsl(271, 83%, 55%);
   --color-secondary-light: hsl(271, 83%, 75%);
   --color-secondary-dark: hsl(271, 83%, 35%);
+
+  --radius: 0.25rem;
 }
 
 html {
