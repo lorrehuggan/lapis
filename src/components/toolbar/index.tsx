@@ -4,12 +4,10 @@ import { cx } from "class-variance-authority";
 import style from "./style.module.css";
 import { Bold, Highlighter, Italic, Keyboard, Save, Strikethrough } from "lucide-solid";
 import { boldToggle, highlightToggle, italicToggle, strikeToggle } from "../../lib/marks";
-import { Accessor, Show, createEffect, createMemo } from "solid-js";
+import { Accessor, Show, createMemo } from "solid-js";
 import { createEditorTransaction } from "solid-tiptap";
 import { isTyping } from "../editor";
-// import { invoke } from '@tauri-apps/api/tauri'
 import Button from "../ui/button";
-// import { toast } from 'solid-sonner'
 import { open } from '@tauri-apps/api/dialog'
 
 
@@ -133,7 +131,7 @@ export default function Toolbar(props: Props) {
           label="italic"
           icon={<Highlighter size={14} />}
           fn={() => {
-            if (isHeading) {
+            if (isHeading()) {
               return () => { }
             }
             return highlightToggle(props.editor())

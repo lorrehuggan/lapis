@@ -44,6 +44,7 @@
   & p {
     margin-bottom: 1rem;
     font-size: 1rem;
+    line-height: 1.5;
   }
 
   & blockquote {
@@ -79,5 +80,4 @@
     font-size: 0.875rem;
     border-radius: 0.125rem;
     padding: 0.125rem;
-    font-family: 'Fira Code', monospace;
 }

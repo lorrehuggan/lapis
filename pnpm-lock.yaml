@@ -8,6 +8,9 @@ dependencies:
   '@kobalte/core':
     specifier: ^0.11.2
     version: 0.11.2(solid-js@1.8.5)
+  '@solidjs/router':
+    specifier: ^0.8.3
+    version: 0.8.3(solid-js@1.8.5)
   '@tauri-apps/api':
     specifier: ^1.5.0
     version: 1.5.1
@@ -1207,6 +1210,14 @@ packages:
     resolution: {integrity: sha512-TsecNzxiO5bLfzqb4OOuzfUmdOROcssuGqgh5rXMMaasoFZ3GoveUgdY1wcf17frMJM7kCNGNuK34EjErneZkg==}
     peerDependencies:
       solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.5
+    dev: false
+
+  /@solidjs/router@0.8.3(solid-js@1.8.5):
+    resolution: {integrity: sha512-oJuqQo10rVTiQYhe1qXIG1NyZIZ2YOwHnlLc8Xx+g/iJhFCJo1saLOIrD/Dkh2fpIaIny5ZMkz1cYYqoTYGJbg==}
+    peerDependencies:
+      solid-js: ^1.5.3
     dependencies:
       solid-js: 1.8.5
     dev: false
