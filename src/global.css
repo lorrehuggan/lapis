@@ -39,6 +39,15 @@
   --color-secondary-light: hsl(271, 83%, 75%);
   --color-secondary-dark: hsl(271, 83%, 35%);
 
+  --color-destructive: hsl(0, 70%, 46%);
+  --color-destructive-light: hsl(0, 70%, 66%);
+  --color-destructive-dark: hsl(0, 70%, 26%);
+
+  --color-success: hsl(120, 70%, 46%);
+  --color-warning: hsl(45, 70%, 46%);
+  --color-info: hsl(210, 70%, 46%);
+
+
   --radius: 0.25rem;
 }
 

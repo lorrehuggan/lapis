@@ -4,7 +4,7 @@ import Editor from "../../components/editor";
 export default function EditorPage() {
 
   return (
-    <Layout>
+    <Layout >
       <Editor />
     </Layout>
   );

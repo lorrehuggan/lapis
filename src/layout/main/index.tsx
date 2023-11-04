@@ -3,7 +3,6 @@ import { Toaster } from "solid-sonner";
 import style from "./style.module.css";
 import { children } from "solid-js";
 import { JSX } from "solid-js";
-import { A } from "@solidjs/router";
 
 type Props = {
   children: JSX.Element | JSX.Element[];

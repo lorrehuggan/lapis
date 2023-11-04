@@ -23,11 +23,11 @@ pub fn save_file(html: &str, name: &str) -> Result<String, String> {
 }
 
 #[tauri::command]
-pub fn get_all(folder_path: &str) -> Result<Vec<String>, String> {
-    let path = Path::new(folder_path);
+pub fn get_all(folder: &str) -> Result<Vec<String>, String> {
+    let path = Path::new(folder);
 
-    let md_files = fs::read_dir(path)
-        .with_context(|| format!("Failed to read directory: {}", folder_path))
+    let md_paths = fs::read_dir(path)
+        .with_context(|| format!("Failed to read directory: {}", folder))
         .expect("Failed to read directory")
         .filter_map(|entry| entry.ok())
         .map(|entry| entry.path())
@@ -40,15 +40,15 @@ pub fn get_all(folder_path: &str) -> Result<Vec<String>, String> {
         .collect::<Result<Vec<String>>>()
         .expect("Failed to convert path to string");
 
-    Ok(md_files)
+    Ok(md_paths)
 }
 
 #[tauri::command]
-pub fn get_file(file_path: &str) -> Result<String, String> {
-    let path = Path::new(file_path);
+pub fn get_html(file: &str) -> Result<String, String> {
+    let path = Path::new(file);
 
     let markdown_content = fs::read_to_string(path)
-        .with_context(|| format!("Failed to read file: {}", file_path))
+        .with_context(|| format!("Failed to read file: {}", file))
         .expect("Failed to read file");
 
     let parser = Parser::new(&markdown_content);

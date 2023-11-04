@@ -1,21 +1,21 @@
 .button {
   all: unset;
   border-radius: var(--radius);
-  transition: all 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
   cursor: pointer;
-  background-color: transparent;
-  padding: 0.5rem;
-}
-
-
-.border {
-  border: 1px solid hsl(0, 0%, 20%);
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .default {
+  background-color: var(--color-muted-dark);
   color: var(--color-white);
   &:hover {
     background-color: var(--color-muted);
+    outline: 1px solid var(--color-muted-dark);
   }
 }
 
@@ -25,8 +25,57 @@
   &:hover {
     background-color: var(--color-primary-dark);
   }
-  &:active {
-    background-color: var(--color-primary);
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  &:hover {
+    background-color: var(--color-secondary-dark);
+  }
+}
+
+.destuctive {
+  background-color: var(--color-destructive);
+  color: white;
+  &:hover {
+    background-color: var(--color-destructive-dark);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--color-muted);
+  &:hover {
+    background-color: var(--color-muted-light);
+  }
+}
+
+.mod {
+  &__border {
+    border: 1px solid var(--color-muted);
+  }
+  &__disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.size {
+  &__small {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  &__medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  &__large {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+  }
+  &__icon {
+    padding: 0.5rem;
   }
 }
 

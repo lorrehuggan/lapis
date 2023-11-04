@@ -6,15 +6,15 @@ import Toolbar from '../toolbar';
 import StarterKit from '@tiptap/starter-kit';
 import Typography from '@tiptap/extension-typography'
 import Highlight from '@tiptap/extension-highlight';
+import Placeholder from '@tiptap/extension-placeholder'
 import CharacterCount from '@tiptap/extension-character-count'
 import { Editor } from "@tiptap/core";
 import style from './style.module.css';
 
 const content = `
-<article>
-    <h1 id="introduction">Introduction</h1>
-    <p>Space, the final frontier. Ever since humanity has looked up at the stars, we have been fascinated by the vastness and mysteries of space. <a href="https://www.nasa.gov" target="_blank">NASA</a> and other space agencies have made great strides in exploring our solar system and beyond.</p>
-</article>`
+<h1>Heading 1</h1>
+<p>This is a paragraph.</p>
+`
 
 const extensions = [
   StarterKit.configure({
@@ -29,7 +29,18 @@ const extensions = [
       class: style.highlight,
     }
   }),
-  CharacterCount
+  CharacterCount,
+  Placeholder.configure({
+    placeholder: ({ node }) => {
+      if (node.type.name === 'paragraph') {
+        return 'Start writing...'
+      }
+      if (node.type.name === 'heading') {
+        return 'Title...'
+      }
+      return 'Type...'
+    },
+  }),
 ]
 
 export const [isTyping, setIsTyping] = createSignal(false);
@@ -63,6 +74,7 @@ export default function Edit() {
     onUpdate: ({ editor }) => {
       handleChange();
       save(editor);
+      console.log(editor.getJSON());
     }
   }));
 

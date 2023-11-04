@@ -15,10 +15,10 @@ async function openFile() {
   const result = await open({
     multiple: false,
     title: 'Open File',
-    defaultPath: '.',
-    filters: [
-      { name: 'Markdown', extensions: ['md'] },
-    ]
+    // defaultPath: '.',
+    // filters: [
+    //   { name: 'Markdown', extensions: ['md'] },
+    // ]
   })
   console.log(result)
 }
