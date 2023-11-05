@@ -27,12 +27,14 @@
     "lucide-solid": "^0.290.0",
     "motion": "^10.16.4",
     "postcss-nested": "^6.0.1",
+    "showdown": "^2.1.0",
     "solid-js": "^1.7.8",
     "solid-sonner": "^0.2.0",
     "solid-tiptap": "^0.6.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.0",
+    "@types/showdown": "^2.0.3",
     "cssnano": "^6.0.1",
     "postcss": "^8.4.31",
     "postcss-preset-env": "^9.2.0",

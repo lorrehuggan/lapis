@@ -8,7 +8,7 @@ use std::path::Path;
 use tauri::api::path::home_dir;
 
 #[tauri::command]
-pub fn save_file(html: &str, name: &str) -> Result<String, String> {
+pub fn save_markdown(html: &str, name: &str) -> Result<String, String> {
     let path = home_dir().unwrap().join("Documents");
     let save_location = path.to_str().unwrap();
     let md = html2md::parse_html(html);
@@ -17,6 +17,20 @@ pub fn save_file(html: &str, name: &str) -> Result<String, String> {
     let mut file = File::create(&path).map_err(|e| format!("Error creating file: {}", e))?;
 
     file.write_all(md.as_bytes())
+        .map_err(|e| format!("Error writing to file: {}", e))?;
+
+    Ok(format!("File saved to: {}", save_location).to_string())
+}
+
+#[tauri::command]
+pub fn save_json(json: &str, name: &str) -> Result<String, String> {
+    let path = home_dir().unwrap().join("Documents");
+    let save_location = path.to_str().unwrap();
+    let path = Path::new(save_location).join(format!("{}.json", name));
+
+    let mut file = File::create(&path).map_err(|e| format!("Error creating file: {}", e))?;
+
+    file.write_all(json.as_bytes())
         .map_err(|e| format!("Error writing to file: {}", e))?;
 
     Ok(format!("File saved to: {}", save_location).to_string())

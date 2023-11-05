@@ -1,7 +1,7 @@
 .button {
   all: unset;
   border-radius: var(--radius);
-  transition: color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   cursor: pointer;
   &:disabled {
     cursor: not-allowed;
@@ -45,7 +45,7 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--color-muted);
+  color: var(--color-white);
   &:hover {
     background-color: var(--color-muted-light);
   }

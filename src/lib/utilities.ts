@@ -1,4 +1,6 @@
-export const debounce = <F extends (...args: any) => any>(
+import showdown from 'showdown'
+
+const debounce = <F extends (...args: any) => any>(
   func: F,
   waitFor: number,
 ) => {
@@ -11,3 +13,10 @@ export const debounce = <F extends (...args: any) => any>(
 
   return debounced as (...args: Parameters<F>) => ReturnType<F>
 }
+
+const markdownToHtml = (markdown: string) => {
+  const converter = new showdown.Converter()
+  return converter.makeHtml(markdown)
+}
+
+export { debounce, markdownToHtml }

@@ -8,14 +8,12 @@ type Props = {
   children: JSX.Element | JSX.Element[];
 }
 
-
-
 export default function Layout(props: Props) {
   const c = children(() => props.children);
   return (
     <div class={style.app}>
-      <Navigation />
       <Toaster invert />
+      <Navigation />
       <div class={style.app__main}>
         {c()}
       </div>

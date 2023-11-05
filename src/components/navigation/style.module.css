@@ -8,10 +8,16 @@
   justify-content: space-between;
   padding: 1rem 0;
 
-  & .menu {
+  &__menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
+}
+
+.files {
+  background-color: var(--color-muted-dark);
+  width: 16rem;
+  padding: 1rem;
 }
