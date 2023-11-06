@@ -1,67 +1,55 @@
-import { Archive, Cog, Folder, Pencil, Search } from 'lucide-solid'
-import style from './style.module.css'
+import { createSignal, onMount } from 'solid-js';
 import Button from '../ui/button'
 import { A } from "@solidjs/router";
-import { useLocation } from "@solidjs/router";
-import { Motion } from "@motionone/solid";
-import { spring } from "motion";
+import { invoke } from '@tauri-apps/api/tauri';
+import { ArrowRight, Cog, Folder, Menu, Pencil, Search } from 'lucide-solid'
 
+import style from './style.module.css'
+import FileMenu from './fileMenu';
 
 export default function Navigation() {
-  const location = useLocation();
+  const [fileNames, setFileNames] = createSignal([''])
+
+
+  onMount(async () => {
+    const result = await invoke('get_all_json',
+      { folder: '/home/lorre/Documents/' }) as string[]
+    setFileNames(result)
+  })
 
   return (
     <>
-      <div style={{ width: '4rem' }}>
-        <Motion.nav
-          animate={{ opacity: [0, 1], width: ["0rem", "4rem"] }}
-          transition={{
-            duration: 0.5,
-            easing: spring({
-              damping: 20,
-              stiffness: 200,
-            }),
-
-          }}
+      <div style={{ width: '3rem' }}>
+        <nav
           class={style.navigation}>
-          <Motion.div
-            animate={{ opacity: [0, 1], x: ["-1rem", "0rem"] }}
-            transition={{
-              duration: 0.7,
-              delay: 0.2,
-              easing: spring({
-                stiffness: 300,
-              }),
-            }}
+          <div
             class={style.navigation__menu}>
-            <Button size="icon" variant={location.pathname === "/" ? "primary" : "ghost"}>
+            <Button size="icon" variant="ghost">
               <A href='/'>
                 <Pencil size={14} />
               </A>
             </Button>
-            <Button size="icon" variant={
-              location.pathname === "/explorer" ? "primary" : "ghost"
-            }>
+            <Button size="icon" variant="ghost">
               <A href='/explorer'>
                 <Search size={14} />
               </A>
             </Button>
-            <Button size="icon" variant={
-              location.pathname === "/archive" ? "primary" : "ghost"
-            }>
-              <A href='/'>
-                <Folder size={14} />
-              </A>
+            <Button size="icon" variant="ghost">
+              <Menu size={14} />
             </Button>
-          </Motion.div>
+            <Button size="icon" variant="ghost">
+              <Folder size={14} />
+            </Button>
+            <Button size="icon" variant="ghost">
+              <ArrowRight size={14} />
+            </Button>
+          </div>
           <Button size="icon" variant='default'>
             <Cog size={14} />
           </Button>
-        </Motion.nav >
+        </nav >
       </div>
-      <Motion.div class={style.files}>
-        <div>just some file name</div>
-      </Motion.div>
+      <FileMenu fileNames={fileNames()} />
     </>
   )
 }

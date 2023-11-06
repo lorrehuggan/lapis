@@ -11,12 +11,14 @@ type Props = {
 export default function Layout(props: Props) {
   const c = children(() => props.children);
   return (
-    <div class={style.app}>
+    <>
       <Toaster invert />
-      <Navigation />
-      <div class={style.app__main}>
-        {c()}
+      <div class={style.app}>
+        <Navigation />
+        <div class={style.app__main}>
+          {c()}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

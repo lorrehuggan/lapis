@@ -3,7 +3,7 @@
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 mod actions;
-use actions::{delete_file, get_all, get_html, save_json, save_markdown};
+use actions::{delete_file, get_all, get_all_json, get_html, save_json, save_markdown};
 
 fn main() {
     tauri::Builder::default()
@@ -13,6 +13,7 @@ fn main() {
             get_html,
             delete_file,
             save_json,
+            get_all_json
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

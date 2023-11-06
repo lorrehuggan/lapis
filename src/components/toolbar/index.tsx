@@ -137,7 +137,7 @@ export default function Toolbar(props: Props) {
             return highlightToggle(props.editor())
           }}
         />
-        <Button onClick={() => openFile()}><Save size={14} /></Button>
+        <Button size="icon" onClick={() => openFile()}><Save size={14} /></Button>
       </div>
     </div>
   )

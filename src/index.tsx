@@ -1,19 +1,24 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
-import App from "./App";
-import Explorer from "./routes/explorer";
+import ExplorerPage from "./routes/explorer";
+import EditorPage from "./routes/editor";
 import { Router, Route, Routes } from "@solidjs/router";
 
 import "./preflight.css";
 import "./global.css";
+import Layout from "./layout/main";
 
 render(() =>
 (
-  <Router>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/explorer" element={<Explorer />} />
-    </Routes>
-  </Router>
+  <>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<EditorPage />} />
+          <Route path="/explorer" element={<ExplorerPage />} />
+        </Routes>
+      </Layout>
+    </Router>
+  </>
 ),
   document.getElementById("root") as HTMLElement);

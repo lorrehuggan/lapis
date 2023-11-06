@@ -73,6 +73,27 @@ pub fn get_html(file: &str) -> Result<String, String> {
 }
 
 #[tauri::command]
+pub fn get_all_json(folder: &str) -> Result<Vec<String>, String> {
+    let path = Path::new(folder);
+
+    let json_paths = fs::read_dir(path)
+        .with_context(|| format!("Failed to read directory: {}", folder))
+        .expect("Failed to read directory")
+        .filter_map(|entry| entry.ok())
+        .map(|entry| entry.path())
+        .filter(|path| path.extension().and_then(|ext| ext.to_str()) == Some("json"))
+        .map(|path| {
+            path.to_str()
+                .map(|s| s.to_string())
+                .ok_or_else(|| anyhow::anyhow!("Failed to convert path to string"))
+        })
+        .collect::<Result<Vec<String>>>()
+        .expect("Failed to convert path to string");
+
+    Ok(json_paths)
+}
+
+#[tauri::command]
 pub fn delete_file(folder_path: &str, file_name: &str) -> Result<(), String> {
     let path = Path::new(folder_path).join(format!("{}.md", file_name));
 
