@@ -1,21 +1,21 @@
-import { createSignal, onMount } from 'solid-js';
 import Button from '../ui/button'
 import { A } from "@solidjs/router";
 import { invoke } from '@tauri-apps/api/tauri';
 import { ArrowRight, Cog, Folder, Menu, Pencil, Search } from 'lucide-solid'
+import FileMenu from './fileMenu';
+import { createQuery } from '@tanstack/solid-query';
 
 import style from './style.module.css'
-import FileMenu from './fileMenu';
 
 export default function Navigation() {
-  const [fileNames, setFileNames] = createSignal([''])
-
-
-  onMount(async () => {
-    const result = await invoke('get_all_json',
-      { folder: '/home/lorre/Documents/' }) as string[]
-    setFileNames(result)
-  })
+  const query = createQuery<string[]>(() => ({
+    queryKey: ['fileNames'],
+    queryFn: async () => {
+      const result = await invoke('get_all_json',
+        { folder: '/home/lorre/Documents/' }) as string[]
+      return result
+    },
+  }))
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function Navigation() {
           </Button>
         </nav >
       </div>
-      <FileMenu fileNames={fileNames()} />
+      <FileMenu query={query} />
     </>
   )
 }

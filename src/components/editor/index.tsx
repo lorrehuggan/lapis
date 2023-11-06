@@ -14,14 +14,6 @@ export default function Edit() {
   let ref!: HTMLDivElement;
   let typingTimeout: any;
 
-  // const handleChange = () => {
-  //   setIsTyping(true);
-  //   clearTimeout(typingTimeout);
-  //   typingTimeout = setTimeout(() => {
-  //     setIsTyping(false);
-  //   }, 1000);
-  // };
-
   const editor = createTiptapEditor(() => ({
     element: ref,
     extensions,
