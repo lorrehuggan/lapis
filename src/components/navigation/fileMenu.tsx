@@ -24,7 +24,9 @@ export default function FileMenu(props: Props) {
                   <A href={`/editor/${fileName.split('/').pop()?.split('.')[0]}`}>
                     <div>
                       <File size={12} />
-                      {fileName.split('/').pop()?.split('.')[0]}
+                      <p>
+                        {fileName.split('/').pop()?.split('.')[0]}
+                      </p>
                     </div>
                     <span>
                       <ArrowRight class="menu__items-item__arrow" size={12} />
