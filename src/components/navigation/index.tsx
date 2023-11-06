@@ -15,6 +15,8 @@ export default function Navigation() {
         { folder: '/home/lorre/Documents/' }) as string[]
       return result
     },
+    // refetchInterval: 1500,
+    refetchOnWindowFocus: true,
   }))
 
   return (

@@ -31,9 +31,9 @@
   --color-muted-light: hsl(0, 0%, 50%);
   --color-muted-dark: hsl(0, 0%, 7.5%);
 
-  --color-primary: hsl(338, 73%, 55%);
-  --color-primary-light: hsl(338, 73%, 66%);
-  --color-primary-dark: hsl(338, 73%, 35%);
+  --color-primary: hsl(345, 75%, 55%);
+  --color-primary-light: hsl(345, 75%, 66%);
+  --color-primary-dark: hsl(345, 75%, 35%);
 
   --color-secondary: hsl(169, 83%, 55%);
   --color-secondary-light: hsl(169, 83%, 66%);

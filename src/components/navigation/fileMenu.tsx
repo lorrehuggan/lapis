@@ -1,6 +1,6 @@
 import { For, Match, Switch } from "solid-js";
 import style from "./style.module.css";
-import { File } from "lucide-solid";
+import { ArrowRight, File } from "lucide-solid";
 import { A } from "@solidjs/router";
 import { CreateQueryResult } from "@tanstack/solid-query";
 
@@ -22,8 +22,13 @@ export default function FileMenu(props: Props) {
               {(fileName) =>
                 <li class={style['menu__items-item']}>
                   <A href={`/editor/${fileName.split('/').pop()?.split('.')[0]}`}>
-                    <span><File size={12} /></span>
-                    {fileName.split('/').pop()?.split('.')[0]}
+                    <div>
+                      <File size={12} />
+                      {fileName.split('/').pop()?.split('.')[0]}
+                    </div>
+                    <span>
+                      <ArrowRight class="menu__items-item__arrow" size={12} />
+                    </span>
                   </A>
                 </li>
               }
