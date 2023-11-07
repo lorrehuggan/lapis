@@ -75,8 +75,9 @@
 
 .highlight {
     background-color: var(--color-primary);
-    color: var(--color-black);
+    color: var(--color-white);
     font-size: 0.875rem;
+    font-weight: 700;
     border-radius: 0.125rem;
     padding: 0.125rem;
 }

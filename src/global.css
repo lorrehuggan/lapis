@@ -24,18 +24,18 @@
 }
 
 :root{
-  --color-white: hsl(0, 0%, 95%);
-  --color-black: hsl(0, 0%, 5%);
+  --color-white: oklch(95.49% 0 0);
+  --color-black: oklch(16.25% 0 0);
 
-  --color-muted: hsl(0, 0%, 10%);
-  --color-muted-light: hsl(0, 0%, 50%);
-  --color-muted-dark: hsl(0, 0%, 7.5%);
+  --color-muted: oklch(22.23% 0 0);
+  --color-muted-light: oklch(67.5% 0 0);
+  --color-muted-dark: oklch(19.14% 0 0);
 
-  --color-primary: hsl(345, 75%, 55%);
-  --color-primary-light: hsl(345, 75%, 66%);
-  --color-primary-dark: hsl(345, 75%, 35%);
+  --color-primary: oklch(58.16% 69.75 15.55);
+  --color-primary-light: oklch(61.09% 54.1 8.65);
+  --color-primary-dark: oklch(34.42% 56.74 18.59);
 
-  --color-secondary: hsl(169, 83%, 55%);
+  --color-secondary: oklch(47.06% 0.2772 283.62);
   --color-secondary-light: hsl(169, 83%, 66%);
   --color-secondary-dark: hsl(169, 83%, 35%);
 

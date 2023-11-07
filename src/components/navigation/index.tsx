@@ -1,7 +1,7 @@
 import Button from '../ui/button'
 import { A } from "@solidjs/router";
 import { invoke } from '@tauri-apps/api/tauri';
-import { ArrowRight, Cog, Folder, Menu, Pencil, Search } from 'lucide-solid'
+import { ArrowRight, Cog, Folder, Home, Menu, Pencil, Search } from 'lucide-solid'
 import FileMenu from './fileMenu';
 import { createQuery } from '@tanstack/solid-query';
 
@@ -26,6 +26,11 @@ export default function Navigation() {
           class={style.navigation}>
           <div
             class={style.navigation__menu}>
+            <Button size="icon" variant="ghost">
+              <A href='/'>
+                <Home size={14} />
+              </A>
+            </Button>
             <Button size="icon" variant="ghost">
               <A href='/'>
                 <Pencil size={14} />

@@ -7,6 +7,7 @@ import { Router, Route, Routes } from "@solidjs/router";
 import "./preflight.css";
 import "./global.css";
 import Layout from "./layout/main";
+import HomePage from "./routes/home";
 
 render(() =>
 (
@@ -14,7 +15,8 @@ render(() =>
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<EditorPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/editor/:route" element={<EditorPage />} />
           <Route path="/explorer" element={<ExplorerPage />} />
         </Routes>
       </Layout>

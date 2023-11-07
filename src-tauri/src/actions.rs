@@ -23,6 +23,17 @@ pub fn save_markdown(html: &str, name: &str) -> Result<String, String> {
 }
 
 #[tauri::command]
+pub fn get_json(file: &str) -> Result<String, String> {
+    let path = Path::new(file);
+
+    let json_content = fs::read_to_string(path)
+        .with_context(|| format!("Failed to read file: {}", file))
+        .expect("Failed to read file");
+
+    Ok(json_content)
+}
+
+#[tauri::command]
 pub fn save_json(json: &str, name: &str) -> Result<String, String> {
     let path = home_dir().unwrap().join("Documents");
     let save_location = path.to_str().unwrap();

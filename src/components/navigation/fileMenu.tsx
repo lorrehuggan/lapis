@@ -21,7 +21,7 @@ export default function FileMenu(props: Props) {
             <For each={props.query.data}>
               {(fileName) =>
                 <li class={style['menu__items-item']}>
-                  <A href={`/editor/${fileName.split('/').pop()?.split('.')[0]}`}>
+                  <A href={`/editor/${fileName.split('/').pop()?.split('.')[0].split(' ').join('-')}`}>
                     <div>
                       <File size={12} />
                       <p>
