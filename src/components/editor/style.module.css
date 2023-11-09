@@ -1,14 +1,15 @@
 .editor {
   max-width: 732px;
+  min-width: 640px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 
   & h1,h2,h3,h4,h5,h6 {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-sm);
     letter-spacing: -0.05em;
     font-weight: 900;
-    color: var(--color-white);
+    color: var(--color-foreground);
   }
 
   & h1 {
@@ -50,36 +51,36 @@
   & blockquote {
     margin-left: 0;
     margin-right: 0;
-    padding-left: 1rem;
-    border-left: 0.5rem solid var(--color-white);
+    padding-left: var(--space-sm);
+    border-left: 0.5rem solid var(--color-foreground);
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-sm);
   }
 
   & ul,
     & ol {
-    padding: 0 1rem;
+    padding: 0 var(--space-sm);
     list-style: square;
   }
 
   & code {
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
-    padding: 1rem;
+    padding: var(--space-sm);
     background-color: hsl(0, 0%, 15%);
     color: hsl(0, 0%, 85%);
-    border-radius: 0.25rem;
+    border-radius: var(--radius);
   }
 
 }
 
 .highlight {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-foreground);
     font-size: 0.875rem;
     font-weight: 700;
-    border-radius: 0.125rem;
-    padding: 0.125rem;
+    border-radius: var(--radius);
+    padding: var(--space-3xs);
 }
 
 

@@ -3,16 +3,18 @@ import { render } from "solid-js/web";
 import ExplorerPage from "./routes/explorer";
 import EditorPage from "./routes/editor";
 import { Router, Route, Routes } from "@solidjs/router";
+import Layout from "./layout/main";
+import HomePage from "./routes/home";
 
 import "./preflight.css";
 import "./global.css";
-import Layout from "./layout/main";
-import HomePage from "./routes/home";
+import Titlebar from "./components/titlebar";
 
 render(() =>
 (
   <>
     <Router>
+      <Titlebar />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />

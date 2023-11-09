@@ -10,7 +10,7 @@ const config = {
     nested(),
     autoprefixer(),
     postcssPresetsEnv({
-      stage: 0,
+      stage: 2
     }),
     cssnano({
       preset: 'default',

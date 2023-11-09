@@ -1,27 +1,30 @@
 .navigation {
   width: 3rem;
-  background-color: var(--color-muted);
-  height: 100vh;
+  background-color: var(--color-muted-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-    border-right: 1px solid hsla(0, 0%, 99%, 0.1);
+  padding: var(--space-sm) 0;
+  border-right: 1px solid hsla(0, 0%, 99%, 0.1);
+  height: calc(100vh - var(--space-lg));
+  margin-top: var(--space-lg);
 
   &__menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-xs);
   }
 }
 
 .menu {
   background-color: var(--color-muted-dark);
   width: 16rem;
-  padding: 1rem;
+  padding: var(--space-sm);
   transition: transform 0.3s ease-in-out;
+  height: calc(100vh - var(--space-lg));
+  margin-top: var(--space-lg);
 
   &__items {
     display: flex;
@@ -31,10 +34,10 @@
       cursor: pointer;
       font-size: 0.75rem;
       transition: all 0.15s ease-in-out;
-      padding: 0.25rem 0.25rem;
+      padding: var(--space-2xs) var(--space-2xs);
       border-radius: var(--radius);
 
-      & a {
+      & li {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -46,7 +49,7 @@
         & div {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: var(--space-xs);
           & p {
               overflow: hidden;
               display: -webkit-box;
@@ -66,7 +69,7 @@
     
       &:hover {
         background-color: var(--color-primary);
-        color: var(--color-white);
+        color: var(--color-foreground);
       }
 
     }

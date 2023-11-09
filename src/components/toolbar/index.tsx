@@ -2,11 +2,10 @@ import { Editor } from "@tiptap/core"
 import Toggle from "../ui/toggle"
 import { cx } from "class-variance-authority";
 import style from "./style.module.css";
-import { Bold, Highlighter, Italic, Keyboard, Save, Strikethrough } from "lucide-solid";
+import { Bold, Highlighter, Italic, Save, Strikethrough } from "lucide-solid";
 import { boldToggle, highlightToggle, italicToggle, strikeToggle } from "../../lib/marks";
-import { Accessor, Show, createMemo } from "solid-js";
+import { Accessor, createMemo } from "solid-js";
 import { createEditorTransaction } from "solid-tiptap";
-import { isTyping } from "../editor";
 import Button from "../ui/button";
 import { open } from '@tauri-apps/api/dialog'
 
@@ -93,19 +92,13 @@ export default function Toolbar(props: Props) {
     return headings.some((heading) => heading === true)
   })
 
-  const wordCount = createEditorTransaction(
-    () => props.editor(), // Editor instance from createTiptapEditor
-    (editor) => editor.storage.characterCount.words(),
-  );
-
-
+  // const wordCount = createEditorTransaction(
+  //   () => props.editor(), // Editor instance from createTiptapEditor
+  //   (editor) => editor.storage.characterCount.words(),
+  // );
 
   return (
     <div class={cx(style.toolbar, 'container')}>
-      <Show when={isTyping()} fallback={<p>Word Count: {wordCount()}</p>
-      }>
-        <Keyboard size={16} />
-      </Show>
       <div class={style.marks}>
         <Toggle
           active={isBold()}

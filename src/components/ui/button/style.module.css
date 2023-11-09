@@ -12,7 +12,7 @@
 
 .default {
   background-color: var(--color-muted-dark);
-  color: var(--color-white);
+  color: white;
   &:hover {
     background-color: var(--color-muted);
     outline: 1px solid var(--color-muted-dark);
@@ -45,7 +45,7 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--color-white);
+  color: var(--color-foreground);
   &:hover {
     background-color: var(--color-muted-light);
   }

@@ -1,0 +1,27 @@
+.titlebar {
+  height: var(--space-lg);
+  background-color: var(--color-muted);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xs);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+
+  &__logo {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+  }
+} 

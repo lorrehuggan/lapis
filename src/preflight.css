@@ -379,7 +379,9 @@ video {
 
 .tiptap:focus {
     outline: none;
-    height: calc(100vh - 7rem);
-    overflow-y: scroll;
+}
+
+body {
+  overflow: hidden;
 }
 

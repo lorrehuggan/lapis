@@ -3,8 +3,11 @@
   justify-content: space-between;
   align-items: center;
   height: 3rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-bottom: var(--space-sm);
+  margin-top: var(--space-sm);
+  max-width: 732px;
+  min-width: 640px;
+  width: 90%;
   & p {
     font-size: 0.875rem;
   }

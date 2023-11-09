@@ -17,14 +17,16 @@ type Props = {
 export default function Layout(props: Props) {
   const c = children(() => props.children);
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster invert />
-      <div class={style.app}>
-        <Navigation />
-        <div class={style.app__main}>
-          {c()}
+    <>
+      <QueryClientProvider client={queryClient}>
+        <Toaster invert />
+        <div class={style.app}>
+          <Navigation />
+          <div class={style.app__main}>
+            {c()}
+          </div>
         </div>
-      </div>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </>
   )
 }

@@ -28,7 +28,6 @@ export default function Edit() {
     refetchOnWindowFocus: true,
   }))
 
-
   const editor = createTiptapEditor(() => ({
     element: ref,
     extensions,
@@ -49,6 +48,7 @@ export default function Edit() {
     clearTimeout(typingTimeout);
     editor()?.destroy();
   });
+
 
   return (
     <>

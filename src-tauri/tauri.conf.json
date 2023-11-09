@@ -14,7 +14,7 @@
     "allowlist": {
       "all": false,
       "dialog": {
-        "all": true,
+        "all": false,
         "ask": true,
         "confirm": true,
         "message": true,
@@ -27,6 +27,17 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -50,7 +61,8 @@
         "resizable": true,
         "title": "Lapis",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "decorations": false
       }
     ]
   }

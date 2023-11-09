@@ -24,37 +24,58 @@
 }
 
 :root{
-  --color-white: oklch(95.49% 0 0);
-  --color-black: oklch(16.25% 0 0);
+  --color-foreground: oklch(95.49% 0 0);
+  --color-background: oklch(16.25% 0 0);
+  --color-background-dark: oklch(15.00% 0 0);
 
   --color-muted: oklch(22.23% 0 0);
   --color-muted-light: oklch(67.5% 0 0);
   --color-muted-dark: oklch(19.14% 0 0);
 
-  --color-primary: oklch(58.16% 69.75 15.55);
+  --color-primary: oklch(55.16% 54.75 15.55);
   --color-primary-light: oklch(61.09% 54.1 8.65);
   --color-primary-dark: oklch(34.42% 56.74 18.59);
 
   --color-secondary: oklch(47.06% 0.2772 283.62);
-  --color-secondary-light: hsl(169, 83%, 66%);
-  --color-secondary-dark: hsl(169, 83%, 35%);
+  --color-secondary-light: oklch(87.09% 0.129 178.87);
+  --color-secondary-dark: oklch(64.01% 0.12 173.38);
 
-  --color-destructive: hsl(0, 70%, 55%);
-  --color-destructive-light: hsl(0, 70%, 66%);
-  --color-destructive-dark: hsl(0, 70%, 26%);
+  --color-destructive: oklch(48.83% 0.198 25.52);
+  --color-destructive-light: oklch(62.46% 0.198 25.52);
+  --color-destructive-dark: oklch(34.41% 0.139 24.25);
 
-  --color-success: hsl(120, 70%, 55%);
-  --color-warning: hsl(45, 70%, 66%);
-  --color-info: hsl(210, 70%, 46%);
+  --color-success: oklch(78.52% 0.2383 146.11);
+  --color-success-dark: oklch(33.17% 0.095 148.27);
+  --color-success-light: oklch(87.09% 0.129 178.87);
 
+  --color-warning: oklch(77.06% 0.1621 75.18);
+  --color-warning-dark: oklch(33.17% 0.095 148.27);
+  --color-warning-light: oklch(87.09% 0.129 178.87);
 
-  --radius: 0.25rem;
+  --color-info: oklch(55.8% 0.149 252.44);
+  --color-info-dark: oklch(33.17% 0.095 148.27);
+  --color-info-light: oklch(87.09% 0.129 178.87);
+
+  /*golden ratio spacing */
+  --space-3xs: 0.146rem;
+  --space-2xs: 0.382rem;
+  --space-xs: 0.618rem;
+  --space-sm: 1rem;
+  --space-md: 1.618rem;
+  --space-lg: 2.618rem;
+  --space-xl: 4.236rem;
+  --space-2xl: 6.854rem;
+  --space-3xl: 11.09rem;
+
+  --radius: var(--space-3xs);
 }
 
+
+/* base classes */
 html {
   font-family: 'Open Sans';
   color: var(--color-muted-light);
-  background-color: var(--color-black);
+  background-color: var(--color-background);
 }
 
 /* utitliy classes */
@@ -64,5 +85,11 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* media queries */
+/* @custom-media --sm (min-width: 640px); */
+/* @custom-media --md (min-width: 768px); */
+/* @custom-media --lg (min-width: 1024px); */
+/* @custom-media --xl (min-width: 1280px); */
 
 
